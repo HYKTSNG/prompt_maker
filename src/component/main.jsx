@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import FooterSelectComponent from "./FooterSelectComponent";
+import HeaderSelectComponent from "./HeaderSelectComponent";
 import TextArea from "./TextArea";
 
 function TextForm() {
@@ -14,29 +15,37 @@ function TextForm() {
     navigator.clipboard.writeText(textToCopy);
   };
 
-  const [selectedOption, setSelectedOption] = useState("");
+  const [footerSelectedOption, setFooterSelectedOption] = useState("");
+  const [headerSelectedOption, setHeaderSelectedOption] = useState("");
 
-  const handleSelectChange = (event) => {
-    setSelectedOption(event.target.value);
+  const handleFooterSelectChange = (event) => {
+    setFooterSelectedOption(event.target.value);
+  };
+
+  const handleHeaderSelectChange = (event) => {
+    setHeaderSelectedOption(event.target.value);
   };
 
   return (
     <div>
       <TextArea inputText={inputText} handleInputChange={handleInputChange} />
 
+      <HeaderSelectComponent
+        selectedOption={headerSelectedOption}
+        onChange={handleHeaderSelectChange}
+      />
+
       <FooterSelectComponent
-        selectedOption={selectedOption}
-        handleSelectChange={handleSelectChange}
+        selectedOption={footerSelectedOption}
+        onChange={handleFooterSelectChange}
       />
 
       <section>
         {inputText && (
           <div>
-            <p>
-              <p>あなたはプログラマーです。</p>
-              {inputText}
-              {selectedOption && <p>{selectedOption}</p>}
-            </p>
+            {headerSelectedOption && <p>{headerSelectedOption}</p>}
+            {inputText}
+            {footerSelectedOption && <p>{footerSelectedOption}</p>}
           </div>
         )}
       </section>

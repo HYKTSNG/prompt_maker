@@ -1,13 +1,13 @@
 import React from "react";
 
-function FooterSelectComponent({ selectedOption, handleSelectChange }) {
+function FooterSelectComponent({ selectedOption, onChange }) {
   return (
     <div>
       <label htmlFor="select-options">Choose a closing statement:　</label>
       <select
         id="select-options"
         value={selectedOption}
-        onChange={handleSelectChange}
+        onChange={onChange}
       >
         <option value="">---</option>
         <option value="箇条書きで教えてください">箇条書き</option>

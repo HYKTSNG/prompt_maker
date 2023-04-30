@@ -1,5 +1,5 @@
 import "./App.css";
-import TextForm from "./component/TextForm";
+import TextForm from "./component/main";
 
 function App() {
   return (

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import FooterSelectComponent from "./FooterSelectComponent";
 import HeaderSelectComponent from "./HeaderSelectComponent";
 import TextArea from "./TextArea";
+import convertToHtml from "./utils";
 
 function TextForm() {
   const [inputText, setInputText] = useState("");
@@ -44,7 +45,7 @@ function TextForm() {
         {inputText && (
           <div>
             {headerSelectedOption && <p>{headerSelectedOption}</p>}
-            {inputText}
+            {convertToHtml(inputText)}
             {footerSelectedOption && <p>{footerSelectedOption}</p>}
           </div>
         )}
